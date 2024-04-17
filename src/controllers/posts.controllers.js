@@ -3,7 +3,7 @@ const { pool } = require("../db");
 /* GET => CONSULTAR */
 const getPosts = async (req, res) => {
   try {
-    let result = await pool.query("SELECT * FROM posts;");
+    let result = await pool.query("SELECT * FROM posts ORDER BY id DESC;");
 
     res.status(200).json(result.rows);
   } catch (error) {
